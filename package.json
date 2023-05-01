@@ -1,0 +1,7 @@
+{
+  "name": "report",
+  "scripts": {
+    "devw": "./typst.exe --font-path ./ watch index.typ",
+    "devl": "./typst --font-path ./ watch index.typ"
+  }
+}
