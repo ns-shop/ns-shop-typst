@@ -31,7 +31,7 @@
 
         Vấn đề an toàn và bảo mật trong TMĐT: Khi giao dịch trực tuyến, người dùng thường cung cấp thông tin cá nhân và tài khoản ngân hàng. Nếu không có biện pháp bảo mật, dữ liệu này có thể bị đánh cắp và lợi dụng để gây hại.
 
-        Mục tiêu chính của đề tài này là tạo ra sản phẩm nhằm tăng cường an toàn và bảo mật trong TMĐT: Triển khai giải pháp xác thực an toàn bảo mật cho dữ liệu và thanh toán giúp tăng cường an toàn và bảo mật cho giao dịch TMĐT, giúp người dùng yên tâm hơn khi giao dịch trực tuyến.
+        Mục tiêu chính của đề tài này là tạo ra sản phẩm nhằm tăng cường an toàn và bảo mật trong TMĐT: Triển khai giải pháp xá  c thực an toàn bảo mật cho dữ liệu và thanh toán giúp tăng cường an toàn và bảo mật cho giao dịch TMĐT, giúp người dùng yên tâm hơn khi giao dịch trực tuyến.
 
         Nâng cao uy tín và chất lượng của website TMĐT: Khi website TMĐT triển khai các giải pháp bảo mật an toàn và đáp ứng các tiêu chuẩn an toàn quốc tế, đó là điểm cộng để nâng cao uy tín và chất lượng của website, thu hút người dùng tin tưởng và sử dụng.
 
@@ -62,6 +62,10 @@
                 #h4("Quản lý đơn hàng")
                 #h4("Quản lý kho hàng")
         #h2("Các lỗi bảo mật phổ biến trong website TMĐT và cách khắc phục")
+            OWASP là viết tắt của Open Web Application Security Project là một tổ chức phi lợi nhuận quốc tế chuyên về bảo mật ứng dụng web. Một trong những nguyên tắc cốt lõi của OWASP là tất cả các tài liệu của tổ chức đều miễn phí và dễ dàng truy cập trên trang web chính thức http://owasp.org, giúp mọi người đặc biệt là ngành an ninh mạng có thể cải thiện tính bảo mật của ứng dụng web. Các tài liệu OWSAP cung cấp bao gồm tài liệu, công cụ, video và diễn đàn. OWASP được biết đến nhiều nhất qua OWASP Top 10.'
+            
+            OWASP Top 10 là một báo cáo được cập nhật thường xuyên về các nguy cơ bảo mật đối với bảo mật ứng dụng web, tập trung vào 10 rủi ro/lỗ hổng quan trọng nhất. Báo cáo được tổng hợp bởi một nhóm các chuyên gia bảo mật từ khắp nơi trên thế giới. OWASP đề cập đến Top 10 như một “tài liệu nâng cao nhận thức” và họ khuyến nghị tất cả các công ty nên kết hợp báo cáo này vào các quy trình của họ để giảm thiểu rủi ro bảo mật.
+            
             #h3("SQL Injection")
                 Lỗi bảo mật SQL Injection là một trong những lỗi phổ biến nhất trong các website TMĐT. Đây là lỗi bảo mật cho phép kẻ tấn công thực hiện các cuộc tấn công vào cơ sở dữ liệu của trang web bằng cách chèn các câu lệnh SQL độc hại vào các trường đầu vào trên trang web.
     
@@ -75,6 +79,10 @@
                     - Cập nhật và nâng cấp hệ thống thường xuyên, đặc biệt là các thành phần quan trọng như hệ điều hành, phần mềm máy chủ và các ứng dụng trên trang web TMĐT.
                 
                 Với những biện pháp bảo mật trên, trang web TMĐT sẽ giảm thiểu được rủi ro bị tấn công SQL Injection và đảm bảo an toàn cho khách hàng trong quá trình giao dịch mua bán sản phẩm trên trang web.
+      
+                Ví dụ, trong một hệ thống với 1000 đầu vào, lọc thành công 999 đầu vào là không đủ vì điều này vẫn để lại một phần giống như “gót chân Asin”, có thể phá hoại hệ thống của bạn bất cứ lúc nào. Bạn có thể cho rằng đưa kết quả truy vấn SQL vào truy vấn khác là một ý tưởng hay vì cơ sở dữ liệu là đáng tin cậy. Nhưng thật không may vì đầu vào có thể gián tiếp đến từ những kẻ có ý đồ xấu. Đây được gọi là lỗi Second Order SQL Injection.
+
+                Việc lọc dữ liệu khá khó vì thế các bạn nên sử dụng các chức năng lọc có sẵn trong framework của mình. Các tính năng này đã được chứng minh sẽ thực hiện việc kiểm tra một cách kỹ lưỡng. Bạn nên cân nhắc sử dụng các framework vì đây là một trong các cách hiệu quả để bảo vệ máy chủ của bạn.
 
             #h3("Cross-Site Scripting (XSS)")
                 Lỗi bảo mật Cross-Site Scripting (XSS) là một trong những lỗi phổ biến trong các website TMĐT. XSS xảy ra khi kẻ tấn công chèn mã độc, ví dụ như JavaScript, vào trang web và khiến nó được thực thi trên trình duyệt của người dùng.
@@ -90,8 +98,36 @@
                     - Sử dụng HTTPOnly cookies để ngăn chặn việc truy cập cookie trong trình duyệt của người dùng.
 
             #h3("Cross-Site Request Forgery (CSRF)")
+                Cross-Site Scripting xảy ra khi các ứng dụng web cho phép người dùng thêm code tùy chỉnh vào đường dẫn url hoặc vào một trang web mà những người dùng khác sẽ nhìn thấy. Lỗ hổng này có thể bị khai thác để chạy mã JavaScript độc hại (malicious JavaScript code) trên trình duyệt của nạn nhân. Ví dụ: kẻ tấn công có thể gửi email cho nạn nhân có vẻ là từ một ngân hàng đáng tin cậy, với một liên kết đến trang web của ngân hàng đó. Tuy nhiên, liên kết này có thể có một số mã JavaScript độc hại được gắn thẻ vào cuối url. Nếu trang web của ngân hàng không được bảo vệ thích hợp chống lại Cross-Site Scripting, thì mã độc hại đó sẽ được chạy trong trình duyệt web của nạn nhân khi họ nhấp vào liên kết.
+
+                Các chiến lược giảm thiểu tấn công Cross-Site Scripting bao gồm thoát các yêu cầu HTTP không đáng tin cậy cũng như xác thực và / hoặc loại bỏ các nội dung do người dùng thêm vào. Sử dụng các web development frameworks hiện đại như ReactJS và Ruby on Rails cũng cung cấp một số tính năng bảo vệ khỏi các cuộc tấn công Cross-Site Scripting.
+            
+            #h3("Broken Authentication")
+            Các lỗ hổng trong hệ thống xác thực (login) có thể cho phép kẻ tấn công truy cập vào tài khoản người dùng và thậm chí có khả năng xâm nhập toàn bộ hệ thống bằng tài khoản quản trị viên. Ví dụ: kẻ tấn công có thể lấy một danh sách chứa hàng nghìn tổ hợp tên người dùng / mật khẩu đã biết có được trong một lần vi phạm dữ liệu và sử dụng tập lệnh để thử tất cả các tổ hợp đó trên hệ thống đăng nhập để xem có tổ hợp nào hoạt động không.
+
+            Một số chiến lược để giảm thiểu lỗ hổng xác thực là sử dụng xác thực 2 yếu tố two-factor authentication (2FA) cũng như hạn chế hoặc trì hoãn các nỗ lực đăng nhập lặp lại bằng cách sử dụng giới hạn về số lần đăng nhập & thời gian giãn cách giữa các lần đăng nhập sai.
+
+            Đây là nhóm các vấn đề có thể xảy ra trong quá trình xác thực. Có một lời khuyên là không nên tự phát triển các giải pháp mã hóa vì rất khó có thể làm được chính xác.
+
+            Có rất nhiều rủi ro có thể gặp phải trong quá trình xác thực:
+
+              - URL có thể chứa Session ID và rò rỉ nó trong Referer Header của người dùng khác.
+              - Mật khẩu không được mã hóa hoặc dễ giải mã trong khi lưu trữ.
+              - Lỗ hổng Session Fixation.
+              - Tấn công Session Hijacking có thể xảy ra khi thời gian hét hạn của session không được triển khai đúng hoặc sử dụng HTTP (không bảo mật SSL)…
+              ...
+            Cách ngăn chặn lỗ hổng:
+
+              Cách đơn giản nhất để tránh lỗ hổng bảo mật web này là sử dụng một framework. Trong trường hợp bạn muốn tự tạo ra bộ xác thực hoặc mã hóa cho riêng mình, hãy nghĩ đến những rủi ro mà bạn sẽ gặp phải và tự cân nhắc kĩ trước khi thực hiện.
+
+
+
             #h3("Injection Flaw")
-            #h3("Broken Authentication and Session Management")
+
+
+
+
+            
         #h2("Giải pháp xác thực an toàn bảo mật cho dữ liệu và thanh toán")
             #h3("SSL - Secure Socket Layer")
             #h3("Tokenization")
@@ -213,7 +249,8 @@
     #set heading(numbering: none)
     // ---
 
-    #h1("Tài liệu tham khảo")
+
+    
 
     #h1("Phụ lục")
         #h2("Ưu nhược điểm của các website TMĐT")
@@ -231,3 +268,9 @@
                 - Vấn đề giao hàng: Việc giao hàng có thể gặp nhiều khó khăn và thời gian giao hàng cũng không được nhanh chóng đối với các sản phẩm có kích thước lớn hoặc cồng kềnh.
                 - Cạnh tranh khốc liệt: Với số lượng website thương mại điện tử ngày càng tăng, đối thủ cạnh tranh trở nên khốc liệt hơn bao giờ hết, do đó, các doanh nghiệp phải đầu tư nhiều hơn để tiếp cận khách hàng và thu hút sự chú ý của họ.
 ])
+
+#h1("Tài liệu tham khảo")
+    + https://vinsep.com/kien-thuc/security/owasp-la-gi-top-10-owasp-la-gi/#Injection
+    + 
+
+    
