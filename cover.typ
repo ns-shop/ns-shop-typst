@@ -6,7 +6,7 @@
         *HỌC VIỆN KỸ THUẬT MẬT MÃ*
         #line(start: (50% - (3.5cm / 2), 0%), length: 3.5cm)
         #figure(
-            image("./logo.png", width: 3.5cm),
+            image("images/logo.png", width: 3.5cm),
         ) \
         ĐỒ ÁN TỐT NGHIỆP \ \
         #text( weight: "bold", size: 16pt,
