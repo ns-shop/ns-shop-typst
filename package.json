@@ -1,5 +1,5 @@
 {
     "scripts": {
-        "watch": "typst.exe --font-path fonts watch main.typ"
+        "watch": "node watch.js"
     }
 }

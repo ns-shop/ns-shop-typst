@@ -55,3 +55,11 @@
         supplement: "Hình"
     )]
 }
+
+#let tab(..fields, cap: "") = {
+    [#figure(
+        table(inset: 10pt, align: left, ..fields),
+        caption: cap,
+        supplement: "Bảng"
+    )]
+}
