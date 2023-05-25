@@ -13,6 +13,9 @@
 ))
 
 #h1("Danh mục các ký hiệu, chữ viết tắt", numbering: false)
+#tabl(columns: (auto, 1fr),
+    [*Từ viết tắt*], [*Định nghĩa*],
+    [TMĐT], [Thương mại điện tử])
 
 #h1("Danh mục bảng", numbering: false)
 #par(first-line-indent: 0pt, outline(

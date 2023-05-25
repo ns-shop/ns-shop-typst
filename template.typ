@@ -62,12 +62,14 @@
     )
 }
 
-#let tabl(..fields, cap: "") = {
-    figure(
-        caption: cap,
-        supplement: "Bảng",
-        table(),
-    )
+#let tabl(..fields, cap: false) = {
+    if type(cap) == "string" {
+        figure(
+            caption: cap,
+            supplement: "Bảng",
+            table(),
+        )
+    }
     table(inset: 10pt, align: left, ..fields)
 }
 
