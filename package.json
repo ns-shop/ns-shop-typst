@@ -1,5 +1,6 @@
 {
     "scripts": {
-        "watch": "node watch.js"
+        "watch": "node ./scripts/watch.js",
+        "update": "node ./scripts/update.js"
     }
 }
