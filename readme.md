@@ -2,11 +2,12 @@
 
 ---
 
-## Bibliography:
+## Bibliography
 
 - [Hayagriva](https://github.com/typst/hayagriva/blob/main/docs/file-format.md)
 
-## Commands:
+## Commands
 
-- Watching for exporting PDF (Windows/Linux): `npm run watch`
-- Update latest Typst (Linux): `npm run update`
+- Install packages: `yarn`
+- Watching for exporting PDF: `yarn watch`
+- Update latest Typst: `yarn tupdate`

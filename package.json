@@ -1,6 +1,10 @@
 {
     "scripts": {
         "watch": "node ./scripts/watch.js",
-        "update": "node ./scripts/update.js"
+        "tupdate": "node ./scripts/update.js"
+    },
+    "dependencies": {
+        "@felipecrs/decompress-tarxz": "^4.0.0",
+        "decompress": "^4.2.1"
     }
 }
