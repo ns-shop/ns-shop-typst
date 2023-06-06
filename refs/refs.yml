@@ -1,12 +1,30 @@
 owasp-top-10:
-  title: OWASP Top 10 Vulnerabilities 2023
+  title: OWASP Top 10 Vulnerabilities 2021
   type: Web
-  url: https://www.edudwar.com/owasp-top-10-vulnerabilities/
+  url: https://www.edudwar.com/owasp-top-10-vulnerabilities
 responsive-web-design:
   title: What Is Responsive Web Design?
   type: Web
-  url: https://www.lambdatest.com/blog/importance-of-responsive-web-design/
+  url: https://www.lambdatest.com/blog/importance-of-responsive-web-design
 crm-system:
   title: Hệ thống CRM
   type: Web
   url: https://www.zoho.com/vi/crm/what-is-crm.html
+tapchicongthuong1:
+  title: Những điểm nổi bật của thương mại điện tử Việt Nam trong giai đoạn tới
+  type: web
+  url: https://tapchicongthuong.vn/bai-viet/nhung-diem-noi-bat-cua-thuong-mai-dien-tu-viet-nam-trong-giai-doan-toi-104548.htm
+oauth20google:
+  title: Using OAuth 2.0 for Web Server Applications
+  type: web
+  url: https://developers.google.com/identity/protocols/oauth2/web-server?hl=en
+breeze:
+  title: Laravel Breeze
+  type: web
+  url: https://github.com/laravel/breeze
+buildwebapp:
+  language: vi
+  title: Giáo trình xây dựng web an toàn
+  author: ["TS. Nguyễn Tuấn Anh", "KS. Hoàng Thanh Nam"]
+  date: 2013
+  location: Học viện Kỹ thuật mật mã

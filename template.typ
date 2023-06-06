@@ -64,138 +64,59 @@
 
 #let tabl(..fields, cap: false) = {
     if type(cap) == "string" {
+        block(height: -(2 * textSize))
         figure(
             caption: cap,
             supplement: "Bảng",
             table(),
         )
+        block(height: -(2 * textSize))
     }
     table(inset: 10pt, align: left, ..fields)
 }
 
-#let code(
-    caption: none,             // content of caption bubble (string, none)
-    bgcolor: rgb("#fff"),      // back ground color (color)
-    strokecolor: 1pt + black,  // frame color (color)
-    hlcolor: yellow,           // color to use for highlighted lines (auto, color)
-    width: 100%,
-    radius: 3pt,
-    inset: 5pt,
-    stepnumber: 1,             // only number lines divisible by stepnumber (integer)
-    numberfirstline: false,    // if the firstline isn't divisible by stepnumber, force it to be numbered anyway (boolean)
-    numberstyle: auto,         // style function to apply to line numbers (auto, style)
-    firstnumber: 1,            // number of the first line (integer)
-    highlight: none,           // line numbers to highlight (none, array of integer)
-    content
-) = {
-    if type(hlcolor) == "auto" {
-        hlcolor = bgcolor.darken(10%)
-    }
-    if type(highlight) == "none" {
-        highlight = ()
-    }
-    block(
-        width: width,
-        fill: bgcolor,
-        stroke: strokecolor,
-        radius: radius,
-        inset: inset,
-        clip: false,
-        below: textSize,
-        {
-            // Draw the caption bubble if a caption was set
-            if caption != none {
-                style(styles => {
-                    let caption_block = block(width: auto,
-                            inset: inset,
-                            radius: radius,
-                            fill: bgcolor,
-                            stroke: strokecolor,
-                            h(.5em) + caption + h(.5em))
-                    place(
-                        top + left,
-                        dx: 0em,
-                        dy: -(measure(caption_block, styles).height / 2 + inset),
-                        caption_block 
-                    )
-                })
-                // skip some vertical space to avoid the caption overlapping with
-                // the beginning of the content
-                v(.6em)
-            }
-
-            let (columns, align, make_row) = {
-                ((1fr,),
-                    (left),
-                    e => {
-                    let (i, l) = e
-                    raw( lang:content.lang, l)
-                    }
-                )
-            }
-            table(
-                stroke:none,
-                columns: columns,
-                rows: (auto,),
-                gutter: 0pt,
-                inset: 2pt,
-                fill: (c, row) => if (row / 2 + firstnumber) in highlight { hlcolor } else { none },
-                ..content
-                    .text
-                    .split("\n")
-                    .enumerate()
-                    .map(make_row)
-                    .flatten()
-                    .map(c => if c.has("text") and c.text == "" { v(1em) } else { c })
-            )
-        }
-    )
-}
-
-#let cover(border: black) = {
-    let cont = [
+#let cover(border: true) = {
+    rect(width: 100%, height: 100%, stroke: if(border) {2.5pt} else {0pt}, [
+        #set align(center)
         \
-        #align(center, [
-            BAN CƠ YẾU CHÍNH PHỦ \
-            *HỌC VIỆN KỸ THUẬT MẬT MÃ*
-            #line(start: (50% - (3.5cm / 2), 0%), length: 3.5cm)
-            #image("images/logo.png", width: 3.5cm) \
-            *ĐỒ ÁN TỐT NGHIỆP ĐẠI HỌC* \ \
+        BAN CƠ YẾU CHÍNH PHỦ \
+        *HỌC VIỆN KỸ THUẬT MẬT MÃ*
+        #line(start: (50% - (3.5cm / 2), 0%), length: 3.5cm)
+        #image("./images/logo.png", width: 3.5cm) \
+        ĐỒ ÁN TỐT NGHIỆP \ \
+        #text( weight: "bold", size: 16pt, "XÂY DỰNG WEBSITE THƯƠNG MẠI ĐIỆN TỬ AN TOÀN") \ \ \
+        #set align(left)
+        #pad(
+            left: 8cm,
+            [
+                #"\t\t\tNgành: An toàn thông tin" \
+                #"Mã số: 7.48.02.02" \
+            ]
+        ) \
+
+        #pad(left: 2cm, [
+            _Sinh viên thực hiện_: \
+            #pad(left: 1cm, [*Ngô Quang Sang*])
+            #pad(left: 1cm, [Lớp: AT15H])
+            _Người hướng dẫn_: \
+            #pad(left: 1cm, [*ThS. Nguyễn Thị Kim Oanh*])
+            #pad(left: 1cm, [Khoa Công Nghệ Thông Tin - Trường Cao đẳng \ Nông Nghiệp và Phát triển Nông Thôn Bắc Bộ])
         ])
-        #underline("ĐỀ TÀI:")
-        #align(center, text( weight: "bold", size: textSize * 1.25,
-            "XÂY DỰNG WEBSITE THƯƠNG MẠI \n ĐIỆN TỬ AN TOÀN")) \ \ \ \
-        #align(center, text(weight: "bold", table(columns: 2, stroke: none, align: left, inset: textSize / 2,
-            "Giảng viên hướng dẫn:", "Th.S Vũ Thị Vân",
-            "Sinh viên thực hiện:", "Ngô Quang Sang",
-            "Lớp:", "AT15H",
-            "Khóa:", "15",
-            "Chuyên ngành:", "An toàn thông tin",)))
-        #align((center + bottom), pad(bottom: .25cm, "Thành phố Hồ Chí Minh, 2023"))
-    ]
-    rect(width: 100%, height: 100%, stroke: 2pt + border, cont)
+
+        #set align((center + bottom))
+        
+        #pad(bottom: .25cm, "Thành phố Hồ Chí Minh, 2023")
+    ])
 }
 
 #let template(body) = {
-    set page(
-        "a4",
-        margin: (
-            top: 2cm,
-            right: 2cm,
-            bottom: 2cm,
-            left: 3cm,
-        )
-    )
-    set text(
-        size: textSize,
-        font: ("Times New Roman"),
-        fallback: false,
-        region: "VN",
-    )
+    set page("a4", margin: (top: 2cm, right: 2cm, bottom: 2cm, left: 3cm))
+    set text( size: textSize, font: ("Times New Roman"), fallback: false, region: "VN")
+    set block(inset: 0pt, outset: 0pt, above: 0pt, below: 1.5 * textSize)
     set par(
         justify: true,
-        first-line-indent: tabSize,
         leading: textSize, // 1.5 lines
+        first-line-indent: tabSize,
     )
     set list(
         indent: tabSize,
@@ -208,16 +129,50 @@
         body-indent: .75em,
         tight: true,
     )
-    show heading: set block(inset: 0pt, outset: 0pt, above: 0pt, below: textSize)
-    show par: set block(inset: 0pt, outset: 0pt, above: 0pt, below: textSize)
-    show figure: set block(inset: 0pt, outset: 0pt, above: 0pt, below: textSize)
-    show list: set block(inset: 0pt, outset: 0pt, above: 0pt, below: textSize)
-    show enum: set block(inset: 0pt, outset: 0pt, above: 0pt, below: textSize)
-    show table: set block(inset: 0pt, outset: 0pt, above: 0pt, below: textSize)
+
+    show heading: it => {
+        set block(below: 1.5 * textSize)
+        it
+        block(height: -(3 * textSize))
+        par("")
+    }
+    show list: it => {
+        set par(hanging-indent: -(2 * tabSize - 0.75em))
+        it
+        block(height: -(3.5 * textSize))
+        par("")
+    }
+    show enum: it => {
+        set par(hanging-indent: -(2 * tabSize - 0.75em))
+        it
+        block(height: -(3.5 * textSize))
+        par("")
+    }
+    show figure: it => {
+        it
+        block(height: -(2.5 * textSize))
+        par("")
+    }
+    show table: it => {
+        it
+        block(height: -(3 * textSize))
+        par("")
+    }
+    show raw.where(block: true): it => {
+        set par(justify: false, leading: 8pt)
+        set text(size: 8pt)
+        grid(
+            columns: (100%, 100%),
+            column-gutter: -100%,
+            block(radius: 0.75em, fill: luma(246), stroke: 1pt, width: 100%, inset: 1em, it),
+        )
+        block(height: -(3 * textSize))
+        par("")
+    }
 
     // --- cover
     cover()
-    cover(border: white)
+    cover(border: false)
 
     // --- set page number
     set page(numbering: "1")
